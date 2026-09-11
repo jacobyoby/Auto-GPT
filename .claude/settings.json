@@ -1,11 +1,15 @@
 {
+  "attribution": {
+    "commit": "",
+    "sessionUrl": false
+  },
   "hooks": {
     "SessionStart": [
       {
         "hooks": [
           {
             "type": "command",
-            "command": "[ -f .git/hooks/commit-msg ] || cp .githooks/commit-msg .git/hooks/commit-msg"
+            "command": "cd \"${CLAUDE_PROJECT_DIR:-.}\" && { [ -f .git/hooks/commit-msg ] || cp .githooks/commit-msg .git/hooks/commit-msg; }"
           }
         ]
       }
